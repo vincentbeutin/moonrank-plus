@@ -7,7 +7,7 @@ Get started
 3. Click "Load unpacked" button and navivigate to the folder you downloaded from GitHub
 4. That's it
 
-You can offer me a coffee by giving a tip on my Solana wallet :
+You can offer me a 🍺 by giving a tip on my Solana wallet :
 `EGpjAdfaUX5JqNXGMgP7MR6Hy9T4RxrCDKfvxVgAGVxU`
 
 
