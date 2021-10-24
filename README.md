@@ -13,7 +13,7 @@ You can offer me a 🍺 by giving a tip on my Solana wallet :
 
 F.A.Q
 -
-####Rankings are not displayed ?
+**Rankings are not displayed?**
 1. Check that the collection is listed on Moonrank
 2. Is the name of the collection on the marketplace different from the one on moonrank?
 
