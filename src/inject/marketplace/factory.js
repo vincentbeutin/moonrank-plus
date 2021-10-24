@@ -60,14 +60,23 @@ let factory =  function (mp) {
                     const rank = htmlDocument.documentElement.querySelector('body > main > div > div.flex-grow > div > div:nth-child(1) > div > div.flex.flex-row.items-center.justify-between > div > span:nth-child(2)').innerHTML;
                     // const pieces = htmlDocument.documentElement.querySelector('body > div.h-screen.flex.sm\\:overflow-hidden.bg-gray-100 > div.flex.flex-col.w-0.flex-1.sm\\:overflow-hidden > section > div > div > h3').innerHTML;
 
-                    let span = document.createElement("span");
-                    span.innerHTML = '('+rank+')';
+                    let span = document.createElement("small");
+                    // span.innerHTML = '🏆 '+rank+'';
+                    span.innerHTML = '' +
+                        '<span style="color: rgb(247, 220, 90)">⍜ </span>' +
+                        '<span>' +
+                            rank
+                        '</span>'
+                    ;
                     span.classList.add('rank');
-
+                    span.style.marginLeft = '10px';
+                    span.style.verticalAlign = 'bottom';
                     if (rank < 200) {
-                        span.style.color = 'red';
+                        span.style.color = 'var(--bs-teal)';
                     } else if(rank < 500) {
-                        span.style.color = 'orange';
+                        span.style.color = 'var(--bs-warning)';
+                    } else {
+                        span.style.color = 'var(--light-grey2)';
                     }
 
                     marketplace.addRank(elem, span)

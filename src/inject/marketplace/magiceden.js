@@ -33,7 +33,7 @@ let magiceden =  function () {
 
     this.addRank = function (elem, rankElem) {
         let caption = elem.children[1];
-        caption.querySelector('a').append(rankElem);
+        caption.querySelector('.card__price').append(rankElem);
     };
 };
 

@@ -1,5 +1,16 @@
 # moonrank-plus
 
+Add rank to NFT in marketplaces like MagicEden from Moonrank.
+
+![screenshot](screenshot.png)
+
+
+| Marketplace        | Status           |
+|:-------------:|:-------------:|
+| MagicEden      | ✅ |
+| Solanart      | ⌛️      |
+| Solsea | ⌛      |
+
 Get started
 -
 1. Download Zip from https://github.com/vincentbeutin/moonrank-plus
@@ -19,9 +30,9 @@ F.A.Q
 
 | MagicEden        | Moonrank           | Status  |
 |:-------------:|:-------------:|:-----:|
-| unirexcity      | unirex | nok |
-| apexduck      | apexduck      |   ok |
-| doge_capital | dogecapital      |    ok |
+| unirexcity      | unirex | ❌ |
+| apexduck      | apexduck      |   ✅ |
+| doge_capital | dogecapital      |    ✅ |
 
 If `nok` you have to edit `magiceden.js`
 ```
