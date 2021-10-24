@@ -1,0 +1,42 @@
+{
+  "name": "Moonrank ++",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Add rank to NFT in marketplaces like MagicEden from Moonrank.",
+  "icons": {
+    "16": "icons/favicon-16x16.png",
+    "48": "icons/favicon-32x32.png"
+  },
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "permissions": [
+    "https://*/*",
+    "https://moonrank.app/*",
+    "*://moonrank.app/*"
+  ],
+  "host_permissions": ["https://moonrank.app/*"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://magiceden.io/*",
+        "https://moonrank.app/*"
+      ],
+
+      "js": [
+        "src/inject/content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "src/inject/core.js",
+    "src/inject/marketplace/factory.js",
+    "src/inject/marketplace/magiceden.js",
+    "src/inject/marketplace/solanart.js",
+    "src/inject/utils.js"
+  ],
+  "browser_action": {
+    "default_popup": "src/popup.html"
+  }
+}
