@@ -41,7 +41,6 @@ let factory =  function (mp) {
             }
 
             let url = 'https://moonrank.app/collection/'+marketplace.getCollectionName()+'/'+marketplace.getAddress(elem);
-            console.log(url);
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "text/html");
 
@@ -59,7 +58,7 @@ let factory =  function (mp) {
                     if (response.trim()  === '404 page not found') {
                         return;
                     }
-                    
+
                     const parser = new DOMParser();
                     const htmlDocument = parser.parseFromString(response, "text/html");
                     const rank = htmlDocument.documentElement.querySelector('body > main > div > div.flex-grow > div > div:nth-child(1) > div > div.flex.flex-row.items-center.justify-between > div > span:nth-child(2)').innerHTML;
