@@ -21,6 +21,8 @@ Get started
 You can offer me a 🍺 by giving a tip on my Solana wallet :
 `EGpjAdfaUX5JqNXGMgP7MR6Hy9T4RxrCDKfvxVgAGVxU`
 
+Follow me on twitter [@vincentbeutin](https://twitter.com/vincentbeutin)
+
 
 F.A.Q
 -
