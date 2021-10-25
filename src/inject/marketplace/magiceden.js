@@ -20,15 +20,17 @@ let magiceden =  function () {
 
     this.getCollectionName = function () {
         let parts = window.location.pathname.split('/');
-        let collection = parts[2];
+        let collection = parts[2]; // https://magiceden.io/marketplace/apexducks
 
-        if (this.collections[parts[2]]) { // name is different on moonrank
-            collection = this.collections[parts[2]];
-        } else if(collection) { // https://magiceden.io/marketplace/apexducks
-            collection = collection.replaceAll('_', '');
-        } else { // https://magiceden.io/marketplace?collection_symbol=apexducks
+        if(!collection) {  // https://magiceden.io/marketplace?collection_symbol=apexducks
             const urlParams = new URLSearchParams(window.location.search);
             collection = urlParams.get('collection_symbol');
+        }
+
+        if (this.collections[collection]) { // name is different on moonrank
+            collection = this.collections[collection];
+        } else {
+            collection = collection.replaceAll('_', '');
         }
 
         return collection;

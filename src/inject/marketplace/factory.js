@@ -64,7 +64,9 @@ let factory =  function (mp) {
                     const rank = htmlDocument.documentElement.querySelector('body > main > div > div.flex-grow > div > div:nth-child(1) > div > div.flex.flex-row.items-center.justify-between > div > span:nth-child(2)').innerHTML;
                     // const pieces = htmlDocument.documentElement.querySelector('body > div.h-screen.flex.sm\\:overflow-hidden.bg-gray-100 > div.flex.flex-col.w-0.flex-1.sm\\:overflow-hidden > section > div > div > h3').innerHTML;
 
-                    let span = document.createElement("small");
+                    let span = document.createElement("a");
+                    span.href = url;
+                    span.target = '_blank';
                     // span.innerHTML = '🏆 '+rank+'';
                     span.innerHTML = '' +
                         '<span style="color: rgb(247, 220, 90)">⍜ </span>' +
