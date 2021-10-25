@@ -8,6 +8,9 @@ let magiceden =  function () {
         "degenerate_ape_academy" : 'degenapes',
         "skyline_nft" : 'skyline',
         "unirexcity" : 'unirex',
+        "lotus_gang_nft" : 'lotusgang',
+        "solana_monkette_busines" : 'solanamonkettebusiness',
+        "the_tower" : 'towerdao',
     };
 
     this.getAddress = function (elem) {

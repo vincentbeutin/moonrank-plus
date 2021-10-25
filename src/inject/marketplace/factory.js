@@ -9,7 +9,7 @@ let factory =  function (mp) {
             enabled: true,
             name: 'magiceden',
             elementNode: '.grid-card__main',
-            listNode: '.infinite-scroll-component .tw-flex',
+            listNode: 'body',
         },
         'solanart': {
             enabled: false, // todo

@@ -14,12 +14,12 @@ import utils from './utils.js';
 	// observer instance
 	const observer = new MutationObserver(function(mutationsList, observer){
 		for(const mutation of mutationsList) {
-			if (mutation.type === 'childList') {
-				// console.log('A child node has been added or removed.');
-				var newCard = mutation.addedNodes[0];
-				if (newCard.classList.contains(marketplace.config.elementNode.substring(1))) {
-					marketplace.grabRank(newCard);
-				}
+			if (mutation.type === 'childList'
+				&& mutation.addedNodes[0]
+				&& mutation.addedNodes[0].classList
+				&& mutation.addedNodes[0].classList.contains(marketplace.config.elementNode.substring(1))) {
+				console.log('A child node has been added or removed.');
+				marketplace.grabRank(mutation.addedNodes[0]);
 			}
 		}
 	});
@@ -27,6 +27,6 @@ import utils from './utils.js';
 	// start observing the target node for configured mutations
 	observer.observe(
 		document.querySelector(marketplace.config.listNode),
-		{ childList: true}
+		{ childList: true, subtree: true,}
 	);
 })();
