@@ -16,7 +16,6 @@
     "https://moonrank.app/*",
     "*://moonrank.app/*"
   ],
-  "host_permissions": ["https://moonrank.app/*"],
   "content_scripts": [
     {
       "matches": [
