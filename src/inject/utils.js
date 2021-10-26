@@ -9,6 +9,12 @@ const utils = {
             case 'solanart.io':
                 mp = 'solanart';
                 break;
+            case 'solport.io':
+                mp = 'solport';
+                break;
+            case 'alpha.art':
+                mp = 'alpha';
+                break;
             default:
         }
 

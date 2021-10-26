@@ -20,7 +20,8 @@
     {
       "matches": [
         "https://magiceden.io/*",
-        "https://moonrank.app/*"
+        "https://solport.io/*",
+        "https://alpha.art/*"
       ],
 
       "js": [
@@ -33,6 +34,8 @@
     "src/inject/marketplace/factory.js",
     "src/inject/marketplace/magiceden.js",
     "src/inject/marketplace/solanart.js",
+    "src/inject/marketplace/solport.js",
+    "src/inject/marketplace/alpha.js",
     "src/inject/utils.js"
   ],
   "browser_action": {

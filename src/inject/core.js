@@ -10,22 +10,5 @@ import utils from './utils.js';
 		return;
 	}
 	marketplace.init();
-
-	// observer instance
-	const observer = new MutationObserver(function(mutationsList, observer){
-		for(const mutation of mutationsList) {
-			if (mutation.type === 'childList'
-				&& mutation.addedNodes[0]
-				&& mutation.addedNodes[0].classList
-				&& mutation.addedNodes[0].classList.contains(marketplace.config.elementNode.substring(1))) {
-				marketplace.grabRank(mutation.addedNodes[0]);
-			}
-		}
-	});
-
-	// start observing the target node for configured mutations
-	observer.observe(
-		document.querySelector(marketplace.config.listNode),
-		{ childList: true, subtree: true,}
-	);
+	marketplace.startObserver();
 })();

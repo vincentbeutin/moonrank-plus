@@ -3,34 +3,24 @@ let magiceden =  function () {
     // magiceden name => moonrank name
     // add an entry if name is very different
     this.collections = {
-        "the_infamous_thugbirdz_derivative" : 'infamousthug',
-        "angry_bunny_club" : 'angrybunnyclub',
-        "degenerate_ape_academy" : 'degenapes',
-        "skyline_nft" : 'skyline',
-        "unirexcity" : 'unirex',
-        "lotus_gang_nft" : 'lotusgang',
-        "solana_monkette_busines" : 'solanamonkettebusiness',
-        "the_tower" : 'towerdao',
+
+        'apex-ducks' : 'apexducks'
     };
 
     this.getAddress = function (elem) {
-        let link = elem.querySelector('a').getAttribute('href');
-        return link.substring(14);
+        let link = elem.querySelector('.card-footer a').getAttribute('href');
+        return link.substring(5);
     };
 
     this.getCollectionName = function () {
         let parts = window.location.pathname.split('/');
         let collection = parts[2]; // https://magiceden.io/marketplace/apexducks
 
-        if(!collection) {  // https://magiceden.io/marketplace?collection_symbol=apexducks
-            const urlParams = new URLSearchParams(window.location.search);
-            collection = urlParams.get('collection_symbol');
-        }
-
         if (this.collections[collection]) { // name is different on moonrank
             collection = this.collections[collection];
-        } else {
-            collection = collection.replaceAll('_', '');
+        }
+        else {
+            collection = collection.replaceAll('-', '');
         }
 
         return collection;
@@ -42,7 +32,7 @@ let magiceden =  function () {
         span.target = '_blank';
         // span.innerHTML = '🏆 '+rank+'';
         span.innerHTML = '' +
-            '<span style="color: rgb(247, 220, 90)">⍜ </span>' +
+            '<span style="color: #291560;">⍜ </span>' +
             '<span>' +
             rank
         '</span>'
@@ -57,9 +47,7 @@ let magiceden =  function () {
         } else {
             span.style.color = 'var(--light-grey2)';
         }
-
-        let caption = elem.children[1];
-        caption.querySelector('.card__price').append(span);
+        elem.querySelectorAll('.card-footer div')[0].append(span);
     };
 
     this.createObserver = function() {
@@ -67,11 +55,17 @@ let magiceden =  function () {
         // observer instance
         const observer = new MutationObserver(function(mutationsList, observer){
             for(const mutation of mutationsList) {
-                if (mutation.type === 'childList'
-                    && mutation.addedNodes[0]
-                    && mutation.addedNodes[0].classList
-                    && mutation.addedNodes[0].classList.contains(_this.config.elementNode.substring(1))) {
-                    _this.grabRank(mutation.addedNodes[0]);
+
+                if (mutation.type === 'childList') {
+                    mutation.addedNodes.forEach(elem => {
+
+                        if (Object.prototype.toString.call(elem) == '[object HTMLDivElement]') {
+                            elem.querySelectorAll('.listing').forEach(elem => {
+                                _this.grabRank(elem);
+                            });
+                        }
+
+                    })
                 }
             }
         });

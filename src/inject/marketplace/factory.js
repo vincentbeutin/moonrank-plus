@@ -1,5 +1,7 @@
 import magiceden from './magiceden.js';
 import solanart from './solanart.js';
+import solport from './solport.js';
+import alpha from './alpha.js';
 import utils from './../utils.js';
 
 let factory =  function (mp) {
@@ -14,7 +16,21 @@ let factory =  function (mp) {
         },
         'solanart': {
             enabled: false, // todo
-        }
+        },
+        'solport': {
+            enabled: true,
+            name: 'solport',
+            elementNode: '.listing',
+            excludedClass: false,
+            listNode: 'body',
+        },
+        'alpha': {
+            enabled: true,
+            name: 'alpha',
+            elementNode: 'main a.group',
+            excludedClass: false,
+            listNode: 'body',
+        },
     };
 
     this.createMarketplace = function () {
@@ -24,6 +40,10 @@ let factory =  function (mp) {
             marketplace = new magiceden();
         } else if (mp === "solanart") {
             marketplace = new solanart();
+        } else if (mp === "solport") {
+            marketplace = new solport();
+        } else if (mp === "alpha") {
+            marketplace = new alpha();
         }
 
         marketplace.config = configs[mp];
@@ -36,7 +56,7 @@ let factory =  function (mp) {
 
         marketplace.grabRank = function (elem) {
 
-            if (elem.classList.contains(this.config.excludedClass.substring(1))) {
+            if (this.config.excludedClass && elem.classList.contains(this.config.excludedClass.substring(1))) {
                 return;
             }
             // Stop if rank already display
@@ -68,30 +88,19 @@ let factory =  function (mp) {
                     const rank = htmlDocument.documentElement.querySelector('body > main > div > div.flex-grow > div > div:nth-child(1) > div > div.flex.flex-row.items-center.justify-between > div > span:nth-child(2)').innerHTML;
                     // const pieces = htmlDocument.documentElement.querySelector('body > div.h-screen.flex.sm\\:overflow-hidden.bg-gray-100 > div.flex.flex-col.w-0.flex-1.sm\\:overflow-hidden > section > div > div > h3').innerHTML;
 
-                    let span = document.createElement("a");
-                    span.href = url;
-                    span.target = '_blank';
-                    // span.innerHTML = '🏆 '+rank+'';
-                    span.innerHTML = '' +
-                        '<span style="color: rgb(247, 220, 90)">⍜ </span>' +
-                        '<span>' +
-                            rank
-                        '</span>'
-                    ;
-                    span.classList.add('rank');
-                    span.style.marginLeft = '10px';
-                    span.style.verticalAlign = 'bottom';
-                    if (rank < 200) {
-                        span.style.color = 'var(--bs-teal)';
-                    } else if(rank < 500) {
-                        span.style.color = 'var(--bs-warning)';
-                    } else {
-                        span.style.color = 'var(--light-grey2)';
-                    }
-
-                    marketplace.addRank(elem, span)
+                    marketplace.addRank(elem, rank, url)
                 })
         };
+
+        marketplace.startObserver = function () {
+            let observer = marketplace.createObserver();
+
+            // start observing the target node for configured mutations
+            observer.observe(
+                document.querySelector(marketplace.config.listNode),
+                { childList: true, subtree: true,}
+            );
+        }
         return marketplace;
     }
 };
