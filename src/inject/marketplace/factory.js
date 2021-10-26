@@ -9,6 +9,7 @@ let factory =  function (mp) {
             enabled: true,
             name: 'magiceden',
             elementNode: '.grid-card__main',
+            excludedClass: '.skeleton',
             listNode: 'body',
         },
         'solanart': {
@@ -35,6 +36,9 @@ let factory =  function (mp) {
 
         marketplace.grabRank = function (elem) {
 
+            if (elem.classList.contains(this.config.excludedClass.substring(1))) {
+                return;
+            }
             // Stop if rank already display
             if (elem.querySelector('.rank')) {
                 return;
