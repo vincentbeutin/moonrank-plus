@@ -11,6 +11,7 @@ let magiceden =  function () {
         "lotus_gang_nft" : 'lotusgang',
         "solana_monkette_busines" : 'solanamonkettebusiness',
         "the_tower" : 'towerdao',
+        "goblin_laboratory" : 'goblinbrain',
     };
 
     this.getAddress = function (elem) {
