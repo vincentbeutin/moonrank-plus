@@ -14,7 +14,8 @@
   "permissions": [
     "https://*/*",
     "https://moonrank.app/*",
-    "*://moonrank.app/*"
+    "*://moonrank.app/*",
+    "storage"
   ],
   "content_scripts": [
     {
@@ -40,5 +41,6 @@
   ],
   "browser_action": {
     "default_popup": "src/popup.html"
-  }
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com/; object-src 'self'"
 }

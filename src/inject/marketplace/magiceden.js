@@ -1,19 +1,5 @@
 let magiceden =  function () {
 
-    // magiceden name => moonrank name
-    // add an entry if name is very different
-    this.collections = {
-        "the_infamous_thugbirdz_derivative" : 'infamousthug',
-        "angry_bunny_club" : 'angrybunnyclub',
-        "degenerate_ape_academy" : 'degenapes',
-        "skyline_nft" : 'skyline',
-        "unirexcity" : 'unirex',
-        "lotus_gang_nft" : 'lotusgang',
-        "solana_monkette_busines" : 'solanamonkettebusiness',
-        "the_tower" : 'towerdao',
-        "goblin_laboratory" : 'goblinbrain',
-    };
-
     this.getAddress = function (elem) {
         let link = elem.querySelector('a').getAttribute('href');
         return link.substring(14);
@@ -28,13 +14,11 @@ let magiceden =  function () {
             collection = urlParams.get('collection_symbol');
         }
 
-        if (this.collections[collection]) { // name is different on moonrank
-            collection = this.collections[collection];
-        } else {
-            collection = collection.replaceAll('_', '');
-        }
-
         return collection;
+    };
+
+    this.resolveCollectionName = function (name) {
+        return name.replaceAll('_', '');
     };
 
     this.addRank = function (elem, rank, url) {

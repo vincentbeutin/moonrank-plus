@@ -2,6 +2,12 @@ import marketplaceFactory from './marketplace/factory.js';
 import utils from './utils.js';
 
 (function(){
+	var getConfig = new Promise(function(resolve, reject){
+		chrome.storage.sync.get(['mapping'], function(config){
+			resolve(config);
+		})
+	});
+
 	let mp = utils.detectMarketplace();
 
 	let factory = new marketplaceFactory(mp);
@@ -9,6 +15,11 @@ import utils from './utils.js';
 	if (!marketplace.config.enabled) {
 		return;
 	}
-	marketplace.init();
-	marketplace.startObserver();
+
+
+	getConfig.then((config) => {
+		marketplace.init(config);
+		marketplace.startObserver();
+	});
+
 })();

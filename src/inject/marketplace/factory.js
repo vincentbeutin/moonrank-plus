@@ -48,13 +48,16 @@ let factory =  function (mp) {
 
         marketplace.config = configs[mp];
 
-        marketplace.init = function () {
+        marketplace.init = function (config) {
+            this.globalConfig = config;
             document.querySelectorAll(this.config.elementNode).forEach(elem => {
                 this.grabRank(elem);
             });
         };
 
         marketplace.grabRank = function (elem) {
+
+
 
             if (this.config.excludedClass && elem.classList.contains(this.config.excludedClass.substring(1))) {
                 return;
@@ -64,7 +67,24 @@ let factory =  function (mp) {
                 return;
             }
 
-            let url = 'https://moonrank.app/collection/'+marketplace.getCollectionName()+'/'+marketplace.getAddress(elem);
+
+
+            let collectionName = marketplace.getCollectionName();
+            let name = null;
+            this.globalConfig.mapping.forEach(function (item, key) {
+                if (item.marketplace == collectionName) {
+                    console.log(item.moonrank);
+                    name = item.moonrank;
+                }
+            });
+
+            console.log(name);
+
+            if (!name) {
+                name = marketplace.resolveCollectionName(collectionName)
+            }
+
+            let url = 'https://moonrank.app/collection/'+name+'/'+marketplace.getAddress(elem);
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "text/html");
 
@@ -90,7 +110,12 @@ let factory =  function (mp) {
 
                     marketplace.addRank(elem, rank, url)
                 })
+
+
+
         };
+
+
 
         marketplace.startObserver = function () {
             let observer = marketplace.createObserver();

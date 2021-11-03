@@ -1,17 +1,85 @@
-<!doctype html>
-<style type="text/css">
-    #mainPopup {
-        padding: 10px;
-        height: 200px;
-        width: 400px;
-        font-family: Helvetica, Ubuntu, Arial, sans-serif;
-    }
-    h1 {
-        font-size: 2em;
-    }
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Test Extension Options</title>
 
-<div id="mainPopup">
-    <h1>Moonrank ++</h1>
-    <p>Add rank to NFT in marketplaces like MagicEden from Moonrank.</p>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style type="text/css">
+        body {
+            padding: 10px;
+            min-height: 400px;
+            min-width: 600px;
+            font-family: Helvetica, Ubuntu, Arial, sans-serif;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        .tab-pane{
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+    </li>
+<!--    <li class="nav-item" role="presentation">-->
+<!--        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Settings</button>-->
+<!--    </li>-->
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Mapping</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <h3>Moonrank ++</h3>
+        <p>Add NFT ranking from Moonrank on the marketplaces like Magiceden, Alpha.art or Solport.</p>
+        <span>You can offer me a beer by giving a tip on my Solana wallet <i>EGpjAdfaUX5JqNXGMgP7MR6Hy9T4RxrCDKfvxVgAGVxU</i></span>
+    </div>
+<!--    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">-->
+<!--        <h3>Settings</h3>-->
+<!--    </div>-->
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="m-3">
+            <div id="status"></div>
+            <form id="mapping">
+                <table id="add_table" class="table" data-toggle="table" data-mobile-responsive="true">
+                    <thead>
+                    <tr>
+                        <th>Marketplace</th>
+                        <th>Moonrank</th>
+                        <th>
+                            <button class="btn btn-outline-success" id="add_row" class="add"> add
+                            </button>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--                        <tr>-->
+                    <!--                            <td>-->
+                    <!--                                <input name="mapping-marketplace[]" type="text" class="form-control">-->
+                    <!--                            </td>-->
+                    <!--                            <td>-->
+                    <!--                                <input name="mapping-moonrank[]" type="text" class="form-control">-->
+                    <!--                            </td>-->
+                    <!--                            <td>-->
+                    <!--                                <button class="btn btn-outline-danger delete_row">remove</button>-->
+                    <!--                            </td>-->
+                    <!--                        </tr>-->
+                    </tbody>
+                </table>
+                <button id="saveMapping" class="btn btn-success" type="button">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

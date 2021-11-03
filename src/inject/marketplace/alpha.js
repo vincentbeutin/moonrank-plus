@@ -1,12 +1,5 @@
 let magiceden =  function () {
 
-    // magiceden name => moonrank name
-    // add an entry if name is very different
-    this.collections = {
-        
-        'apex-ducks' : 'apexducks'
-    };
-
     this.getAddress = function (elem) {
         let link = elem.getAttribute('href');
         return link.substring(3);
@@ -14,16 +7,11 @@ let magiceden =  function () {
 
     this.getCollectionName = function () {
         let parts = window.location.pathname.split('/');
-        let collection = parts[2]; // https://magiceden.io/marketplace/apexducks
+        return parts[2]; // https://magiceden.io/marketplace/apexducks
+    };
 
-        if (this.collections[collection]) { // name is different on moonrank
-            collection = this.collections[collection];
-        }
-        else {
-            collection = collection.replaceAll('-', '');
-        }
-
-        return collection;
+    this.resolveCollectionName = function (name) {
+        return name.replaceAll('-', '');
     };
 
     this.addRank = function (elem, rank, url) {
