@@ -8,6 +8,8 @@ Add rank to NFT in marketplaces like MagicEden from Moonrank.
 | Marketplace        | Status           |
 |:-------------:|:-------------:|
 | MagicEden      | ✅ |
+| Alpha.art      | ✅ |
+| Solport      | ✅ |
 | Solanart      | ⌛️      |
 | Solsea | ⌛      |
 
