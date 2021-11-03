@@ -1,33 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    (async () => {
-        // Connect to cluster
-        var connection = new solanaWeb3.Connection(
-            'https://solana-api.projectserum.com',
-            'confirmed',
-        );
-
-        let base58publicKey = new solanaWeb3.PublicKey('EGpjAdfaUX5JqNXGMgP7MR6Hy9T4RxrCDKfvxVgAGVxU');
-
-        // Generate a new wallet keypair and airdrop SOL
-        // var wallet = solanaWeb3.Keypair.generate();
-        // var airdropSignature = await connection.requestAirdrop(
-        //     wallet.publicKey,
-        //     solanaWeb3.LAMPORTS_PER_SOL,
-        // );
-        //
-        // //wait for airdrop confirmation
-        // await connection.confirmTransaction(airdropSignature);
-
-        // get account info
-        // account data is bytecode that needs to be deserialized
-        // serialization and deserialization is program specic
-
-        // let filter = solanaWeb3.TokenAccountsFilter('mint')
-        let account = await connection.getAccountInfo(base58publicKey);
-        console.log(account);
-    })();
-
     document.querySelector('#add_row').addEventListener('click', function (e) {
         e.preventDefault();
 
