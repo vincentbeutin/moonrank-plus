@@ -73,12 +73,9 @@ let factory =  function (mp) {
             let name = null;
             this.globalConfig.mapping.forEach(function (item, key) {
                 if (item.marketplace == collectionName) {
-                    console.log(item.moonrank);
                     name = item.moonrank;
                 }
             });
-
-            console.log(name);
 
             if (!name) {
                 name = marketplace.resolveCollectionName(collectionName)

@@ -109,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function createTable(mapping) {
-        console.log(mapping);
         mapping.forEach(function (item, key) {
 
             let row = document.createElement('tr');
