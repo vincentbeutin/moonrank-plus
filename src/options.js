@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", function() {
         row.innerHTML = `
         <tr>
             <td>
-                <input name="mapping-marketplace[]" type="text" class="form-control">
+                <input style="line-height: 1em;font-size: 0.8rem;" name="mapping-marketplace[]" type="text" class="form-control">
             </td>
             <td>
-                <input name="mapping-moonrank[]" type="text" class="form-control">
+                <input style="line-height: 1em;font-size: 0.8rem;" name="mapping-moonrank[]" type="text" class="form-control">
             </td>
             <td>
-                <button class="btn btn-outline-danger delete_row">remove</button>
+                <button style="line-height: 1em;font-size: 0.8rem;" class="btn btn-outline-danger delete_row">remove</button>
             </td>
         </tr>
         `;
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, function() {
             // Update status to let user know options were saved.
             var status = document.getElementById('status');
-            status.textContent = 'Options saved.';
+            status.textContent = 'Options saved. Reload page.';
             setTimeout(function() {
                 status.textContent = '';
             }, 750);
@@ -115,13 +115,13 @@ document.addEventListener("DOMContentLoaded", function() {
             row.innerHTML = `
                 <tr>
                     <td>
-                        <input name="mapping-marketplace[]" type="text" class="form-control" value="${item.marketplace}">
+                        <input style="line-height: 1em;font-size: 0.8rem;" name="mapping-marketplace[]" type="text" class="form-control" value="${item.marketplace}">
                     </td>
                     <td>
-                        <input name="mapping-moonrank[]" type="text" class="form-control" value="${item.moonrank}">
+                        <input style="line-height: 1em;font-size: 0.8rem;" name="mapping-moonrank[]" type="text" class="form-control" value="${item.moonrank}">
                     </td>
                     <td>
-                        <button class="btn btn-outline-danger delete_row">remove</button>
+                        <button style="line-height: 1em;font-size: 0.8rem;" class="btn btn-outline-danger delete_row">remove</button>
                     </td>
                 </tr>
             `;
